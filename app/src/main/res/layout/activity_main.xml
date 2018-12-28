@@ -1,0 +1,193 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:orientation="vertical">
+    //设置背景图片
+
+    <ImageView
+        android:id="@+id/listen_background_iv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/timg" />
+
+    <RelativeLayout
+        android:id="@+id/listen_rl"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_weight="1">
+        //设置返回按钮图片
+
+        <ImageView
+            android:id="@+id/listen_back"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/chang"
+
+            />
+        //设置歌曲名
+
+        <TextView
+            android:id="@+id/listen_title_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="8dp"
+            android:layout_toRightOf="@id/listen_back"
+            android:text="βιοζ"
+            android:textStyle="bold"
+            android:textColor="@color/colorBlack"
+            android:textSize="20sp" />
+        //设置歌手名
+
+        <TextView
+            android:id="@+id/listen_artist_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/listen_title_tv"
+            android:layout_alignStart="@id/listen_title_tv"
+            android:layout_marginTop="5dp"
+            android:text="小林未郁"
+            android:textStyle="bold"
+            android:textColor="@color/colorBlack"
+            android:textSize="15sp" />
+        //设置专辑名
+
+        //设置“分享”按钮
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:src="@drawable/share" />
+        //设置布局间的线
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_below="@id/listen_artist_tv"
+            android:background="#bababa" />
+    </RelativeLayout>
+
+    //设置唱片圆盘
+    <ImageView
+        android:id="@+id/listen_changpian_img"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+
+        android:src="@drawable/disc" />
+    //设置圆盘上的指针
+    <ImageView
+        android:id="@+id/listen_zhizhen_iv"
+        android:layout_width="100dp"
+        android:layout_height="150dp"
+        android:layout_below="@id/listen_rl"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/needle" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="15dp">
+
+        <RelativeLayout
+            android:id="@+id/listen_play"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="0dp">
+
+            //设置“暂停”
+
+            <ImageView
+                android:id="@+id/circle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                app:srcCompat="@drawable/circles" />
+
+            <ImageView
+                android:id="@+id/listen_pause1_img"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/pause" />
+            //设置“上一首”
+
+            <ImageView
+                android:id="@+id/listen_back_img"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_toLeftOf="@id/listen_pause1_img"
+                android:src="@drawable/back" />
+
+            //设置下一首
+
+            <ImageView
+                android:id="@+id/listen_next_img"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="30dp"
+                android:layout_toRightOf="@id/listen_pause1_img"
+                android:src="@drawable/next" />
+
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/listen_play"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp">
+            //设置“当前歌曲时间”
+
+            <TextView
+                android:id="@+id/listen_current_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00:00"
+                android:textColor="@color/colorBlack"/>
+            //设置“进度条”
+
+            <SeekBar
+                android:id="@+id/listen_jindutiao_sb"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+            //设置“歌曲总时长”
+
+            <TextView
+                android:id="@+id/listen_length_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="02:30"
+                android:textColor="@color/colorBlack"/>
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+</RelativeLayout>
